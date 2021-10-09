@@ -22,7 +22,7 @@
 				difMin = Math.floor(gap / (1000 * 60));
 				gap -= difMin * (1000 * 60);
 				difSec = Math.floor(gap / 1000);
-				TextBox.textContent = '시험까지'+difDay+'일'+difHour+'시간'+difMin+'분'+difSec+'초 남았습니다.';
+				TextBox.textContent = '시험까지 '+difDay+'일'+difHour+'시간'+difMin+'분'+difSec+'초 남았습니다.';
 			}
 			setInterval(getTimeLeft, 500)
 		}
