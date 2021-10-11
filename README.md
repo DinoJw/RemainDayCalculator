@@ -1,3 +1,4 @@
 # DaysUntilTest
-for maesung \n
+for maesung
+
 https://dinojw.github.io/DaysUntilTest/
