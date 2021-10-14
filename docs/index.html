@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>시험까지 남은 시간</title>
+	<title>일정까지 남은 시간</title>
 	<style type="text/css">
 		a {
     		color: #0060B6;
@@ -31,6 +31,7 @@
 				noParameterEvent()
 				return;
 			}
+			document.title = eventName + '까지 남은 시간'
 			eventMD = '-'+month+'-'+day
 			eventDay = new Date(new Date().getFullYear() + eventMD)
 			function setTextBox(str){
