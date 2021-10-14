@@ -1,4 +1,3 @@
 # DaysUntilTest
-for maesung
 
-https://dinojw.github.io/DaysUntilTest/
+https://dinojw.github.io/RemainDayCalculator
