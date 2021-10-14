@@ -12,23 +12,44 @@
 	<script type="text/javascript">
 		function init() {
 			TextBox = document.getElementById('TimeLeftText')
+			parameters = (location.href.slice(location.href.indexOf('?') + 1,location.href.length)).split('&')
+			parameters.forEach(function(e){
+				switch(e[0]) {
+					case 'm':
+						month = e.slice(e.indexOf('=') + 1)
+						break;
+					case 'd':
+						day = e.slice(e.indexOf('=') + 1)
+						break;
+					case 'n':
+						eventName = decodeURI(e.slice(e.indexOf('=') + 1))
+						break;
+				}
+				e = e.slice(e.indexOf('=') + 1)
+			})
+			if (parameters.length != 3) {
+				noParameterEvent()
+				return;
+			}
+			eventMD = '-'+month+'-'+day
+			eventDay = new Date(new Date().getFullYear() + eventMD)
+			function setTextBox(str){
+				TextBox.textContent = str
+			}
+			function noParameterEvent() {
+				setTextBox('loll')
+			}
 			function getTimeLeft() {
-				testM = 12
-				testD = 15
-				//change here
-				//M = month, D = day
-				testMD = '-'+testM+'-'+testD
-				curDay = new Date();
-				testDay = new Date(curDay.getFullYear() + testMD);
-				gap = testDay - curDay
-				difDay = Math.floor((testDay - curDay) / (1000 * 60 * 60 * 24));
+				curTime = new Date();
+				gap = eventDay - curTime
+				difDay = Math.floor((eventDay - curTime) / (1000 * 60 * 60 * 24));
 				gap -= difDay * (1000 * 60 * 60 * 24);
 				difHour = Math.floor(gap / (1000 * 60 * 60));
 				gap -= difHour * (1000 * 60 * 60);
 				difMin = Math.floor(gap / (1000 * 60));
 				gap -= difMin * (1000 * 60);
 				difSec = Math.floor(gap / 1000);
-				TextBox.textContent = '시험까지 '+difDay+'일'+difHour+'시간'+difMin+'분'+difSec+'초 남았습니다.';
+				setTextBox(eventName + '까지 '+difDay+'일'+difHour+'시간'+difMin+'분'+difSec+'초 남았습니다.')
 			}
 			setInterval(getTimeLeft, 500)
 		}
