@@ -10,6 +10,9 @@ d = 일정의 날(day)
 
 https://dinojw.github.io/RemainDayCalculator
 
+
 시험 : https://dinojw.github.io/RemainDayCalculator?n=시험&m=12&d=15
+
 크리스마스 : https://dinojw.github.io/RemainDayCalculator?n=크리스마스&m=12&d=25
+
 겨울방학 : https://dinojw.github.io/RemainDayCalculator?n=겨울방학&m=12&d=31
