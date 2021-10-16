@@ -12,6 +12,9 @@
 	<script type="text/javascript">
 		function init() {
 			TextBox = document.getElementById('TimeLeftText')
+			function setTextBox(str){
+				TextBox.textContent = str
+			}
 			parameters = (location.href.slice(location.href.indexOf('?') + 1,location.href.length)).split('&')
 			parameters.forEach(function(e){
 				switch(e[0]) {
@@ -34,11 +37,13 @@
 			document.title = eventName + '까지 남은 시간'
 			eventMD = '-'+month+'-'+day
 			eventDay = new Date(new Date().getFullYear() + eventMD)
-			function setTextBox(str){
-				TextBox.textContent = str
+			if(eventDay.getTime() < new Date().getTime()) {
+				setTextBox(eventName + "은 이미 시작되었거나 지났습니다.")
+				return
 			}
 			function noParameterEvent() {
-				setTextBox('loll')
+				setTextBox('매개변수가 충분하지 않습니다.')
+				return
 			}
 			function getTimeLeft() {
 				curTime = new Date();
