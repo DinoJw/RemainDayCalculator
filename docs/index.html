@@ -27,22 +27,37 @@
 					case 'n':
 						eventName = decodeURI(e.slice(e.indexOf('=') + 1))
 						break;
+					case 'e':
+						isEvent = true
+						event = e.slice(e.indexOf('=') + 1)
 				}
-				e = e.slice(e.indexOf('=') + 1)
 			})
-			if (parameters.length != 3) {
-				noParameterEvent()
+			if(isEvent) {
+				eventFunc(event)
+				setInterval(getTimeLeft, 500)
 				return;
+			}
+			function eventFunc(e) {
+				switch(e) {
+					case "NewYear":
+						eventDay = new Date((new Date().getFullYear() + 1) + " 01 01 00:00")
+						eventName = "새해"
+						break;
+					case "Tomorrow":
+						eventDay = new Date(String(new Date().getFullYear()) +" "+String(new Date().getMonth() +1)+" "+String(new Date().getDate() + 1) + " 00:00");
+						eventName = "내일"
+						break;
+				}
+			}
+			if (parameters.length != 3) {
+				setTextBox('매개변수가 충분하지 않습니다.')
+				return
 			}
 			document.title = eventName + '까지 남은 시간'
 			eventMD = '-'+month+'-'+day
 			eventDay = new Date(new Date().getFullYear() + eventMD)
 			if(eventDay.getTime() < new Date().getTime()) {
 				setTextBox(eventName + "은 이미 시작되었거나 지났습니다.")
-				return
-			}
-			function noParameterEvent() {
-				setTextBox('매개변수가 충분하지 않습니다.')
 				return
 			}
 			function getTimeLeft() {
@@ -56,7 +71,7 @@
 				gap -= difMin * (1000 * 60);
 				difSec = Math.floor(gap / 1000);
 				setTextBox(eventName + '까지 '+difDay+'일'+difHour+'시간'+difMin+'분'+difSec+'초 남았습니다.')
-			}
+			} 
 			setInterval(getTimeLeft, 500)
 		}
 </script>
