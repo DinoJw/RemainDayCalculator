@@ -3,79 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<title>일정까지 남은 시간</title>
-	<style type="text/css">
-
-	</style>
-	<script type="text/javascript">
-		function init() {
-			isEvent = false
-			TextBox = document.getElementById('TimeLeftText')
-			function setTextBox(str){
-				TextBox.textContent = str
-			}
-			parameters = (location.href.slice(location.href.indexOf('?') + 1,location.href.length)).split('&')
-			parameters.forEach(function(e){
-				switch(e[0]) {
-					case 'm':
-						month = e.slice(e.indexOf('=') + 1)
-						break;
-					case 'd':
-						day = e.slice(e.indexOf('=') + 1)
-						break;
-					case 'n':
-						eventName = decodeURI(e.slice(e.indexOf('=') + 1))
-						break;
-					case 'e':
-						isEvent = true
-						event = e.slice(e.indexOf('=') + 1)
-				}
-			})
-			if(isEvent) {
-				eventFunc(event)
-				setInterval(getTimeLeft, 500)
-				return;
-			}
-			function eventFunc(e) {
-				switch(e) {
-					case "NewYear":
-						eventDay = new Date((new Date().getFullYear() + 1) + " 01 01 00:00")
-						eventName = "새해"
-						break;
-					case "Tomorrow":
-						eventDay = new Date(String(new Date().getFullYear()) +" "+String(new Date().getMonth() +1)+" "+String(new Date().getDate() + 1) + " 00:00");
-						eventName = "내일"
-						break;
-				}
-			}
-			if (parameters.length != 3) {
-				setTextBox('매개변수가 충분하지 않습니다.')
-				return
-			}
-			document.title = eventName + '까지 남은 시간'
-			eventMD = '-'+month+'-'+day
-			eventDay = new Date(new Date().getFullYear() + eventMD)
-			if(eventDay.getTime() < new Date().getTime()) {
-				setTextBox(eventName + "은 이미 시작되었거나 지났습니다.")
-				return
-			}
-			function getTimeLeft() {
-				curTime = new Date();
-				gap = eventDay - curTime
-				difDay = Math.floor((eventDay - curTime) / (1000 * 60 * 60 * 24));
-				gap -= difDay * (1000 * 60 * 60 * 24);
-				difHour = Math.floor(gap / (1000 * 60 * 60));
-				gap -= difHour * (1000 * 60 * 60);
-				difMin = Math.floor(gap / (1000 * 60));
-				gap -= difMin * (1000 * 60);
-				difSec = Math.floor(gap / 1000);
-				setTextBox(eventName + '까지 '+difDay+'일'+difHour+'시간'+difMin+'분'+difSec+'초 남았습니다.')
-			} 
-			setInterval(getTimeLeft, 500)
-		}
-</script>
+	<link rel="shortcut icon" href="./favicon.ico">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script type="text/javascript" src="./timer.js"></script>
 </head>
 <body onload="init()">
-	<div id='TimeLeftText' title = "?"style="position:fixed;top:50%;left:28%;margin:-100px 0 0 -100px;font-size:50px;text-decoration: none;color: black"></div>
-	<pre style="position:fixed;top:110%;left:37%;margin:-100px 0 0 -100px;font-size:20px;">뭔가 추가하고 싶다면 2713에게 말하거나 <a href="https://github.com/DinoJw/DaysUntilTest/issues">이슈</a> 만들면 대부분 해드림</pre>
+	<div id = "container" title = "Timer">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
 </body>
 </html>
