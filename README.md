@@ -27,4 +27,4 @@ e(이벤트) -
 
 내일 : https://dinojw.github.io/RemainDayCalculator/?e=Tomorrow
 
-크리스마스 : https://dinojw.github.io/RemainDayCalculator?e=ChristMas
+크리스마스 : https://dinojw.github.io/RemainDayCalculator?e=Christmas
