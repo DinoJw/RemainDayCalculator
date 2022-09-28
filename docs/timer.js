@@ -9,7 +9,8 @@ function init() {
 	function eventFunc(e) {
 		const EVENTS = [ //Event, date, name
 			["NewYear", new Date(now.getFullYear() + 1 + " 01 01 00:00"), "새해"],
-			["Tomorrow", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1), "내일"]
+			["Tomorrow", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1), "내일"],
+			["Christmas", new Date(now.getFullYear() + " 12 25"), "크리스마스"]
 		]
 		for (var event of EVENTS) {
 			if (event[0] == e) {
