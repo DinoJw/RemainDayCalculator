@@ -7,11 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="./style.css">
 	<script type="text/javascript" src="./timer.js"></script>
 </head>
-<body onload="init()">
-	<div id = "container" title = "Timer">
+<body onload="Init()">
+	<div id="homeIcon" title="메인 화면으로 가기" onclick="GoToHome();"><</div>
+	<div id="description">일정의 이름과 시간을 적어주세요</div>
+	<div id="container" title ="Timer">
 		<div></div>
-		<div></div>
+		<div>계산중...</div>
 		<div></div>
 	</div>
+	<div id="urlCopy">생성된 URL 복사하기</div>
 </body>
 </html>
