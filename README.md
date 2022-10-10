@@ -10,10 +10,13 @@ m = 일정의 달(month)
 d = 일정의 날(day)
 e = 이벤트(event, 단독 사용하며 아래에 지정된것만 사용 가능합니다)
 
-예시 : 
+예시 --
+
 https://dinojw.github.io/RemainDayCalculator?e=NewYear
+
 https://dinojw.github.io/RemainDayCalculator?n=테스트&m=9&d=28
 
+--
 
 중간고사 : https://dinojw.github.io/RemainDayCalculator?n=중간고사&m=10&d=6
 
