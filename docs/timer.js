@@ -76,7 +76,9 @@ function Init() {
 	}
 
 	if(eventDay.getTime() < now.getTime()) {
-		setTextBox(eventName + "은(는) 이미 시작되었거나 지났습니다.");
+		innerDiv[0].textContent	= eventName + "은(는)";
+		innerDiv[1].textContent = "이미 시작되었거나";
+		innerDiv[2].textContent = "지났습니다";
 		return;
 	}
 
@@ -127,5 +129,7 @@ function InitHome() {
 		if (error) { return }
 		url = location.href + "?n=" + name + "&m=" + month + "&d=" + day;
 		navigator.clipboard.writeText(url);
+		result.classList.add("copied");
+		setTimeout(() => { result.classList.remove("copied") }, 1000);
 	})
 }
