@@ -78,12 +78,12 @@ function Init() {
 	if(eventDay.getTime() < now.getTime()) {
 		innerDiv[0].textContent	= eventName + "은(는)";
 		innerDiv[1].textContent = "이미 시작되었거나";
-		innerDiv[2].textContent = "지났습니다";
+		innerDiv[2].textContent = "지났습니다.";
 		return;
 	}
 
 	innerDiv[0].textContent = eventName + "까지";
-	innerDiv[2].textContent = "남았습니다";
+	innerDiv[2].textContent = "남았습니다.";
 	setInterval(getTimeLeft, 500);
 }
 

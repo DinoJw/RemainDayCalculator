@@ -37,7 +37,7 @@ body div {
 
 .error::after {
 	position: absolute;
-	content: "값을 확인해 주세요";
+	content: "값을 확인해 주세요.";
 	color: #e55355;
 	margin-top: 2.3rem;
 	font-size: 1rem;
