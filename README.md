@@ -20,7 +20,7 @@ https://dinojw.github.io/RemainDayCalculator?n=테스트&m=9&d=28
 
 중간고사 : https://dinojw.github.io/RemainDayCalculator?n=중간고사&m=10&d=6
 
-기말고사 : https://dinojw.github.io/RemainDayCalculator?n=기말고사&m=12&d=12
+기말고사 : https://dinojw.github.io/RemainDayCalculator?n=기말고사&m=12&d=5
 
 겨울방학 : https://dinojw.github.io/RemainDayCalculator?n=겨울방학&m=12&d=29
 
